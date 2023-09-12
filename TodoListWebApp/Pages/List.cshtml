@@ -1,0 +1,37 @@
+﻿@page
+@model TodoListWebApp.Pages.ListModel
+@{
+}
+
+<a href="/new">New Todo</a>
+
+<h1>ToDo List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Task</th>
+            <th>Date Added</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.ToDoSet != null)
+        {
+            @foreach (var todo in Model.ToDoSet)
+            {
+                <tr>
+                    <td>@todo.Id</td>
+                    <td>@todo.Task</td>
+                    <td>@todo.DateAdded.ToShortDateString()</td>
+                    <td>@todo.Status</td>
+                </tr>
+            }
+
+        }
+        else
+        {
+            <p>No data to show</p>
+        }
+    </tbody>
+</table>
